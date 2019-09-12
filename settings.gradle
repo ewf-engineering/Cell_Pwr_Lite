@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='Cell_Pwr_Lite'
