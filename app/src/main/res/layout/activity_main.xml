@@ -54,7 +54,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <TextView
-        android:id="@+id/textDestIP"
+        android:id="@+id/textPLMN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -110,7 +110,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewPLMN" />
 
     <TextView
-        android:id="@+id/textDestIP"
+        android:id="@+id/textPLMN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -185,21 +185,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewRSRQ" />
 
     <TextView
-        android:id="@+id/textViewPRB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="PRB"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/textViewRSSI" />
-
-    <TextView
         android:id="@+id/textViewIMEI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
         android:text="IMEI"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/textViewIMSI" />
@@ -208,11 +198,11 @@
         android:id="@+id/textViewIMSI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
         android:text="IMSI"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPRB" />
+        app:layout_constraintTop_toBottomOf="@+id/startbutton" />
 
     <TextView
         android:id="@+id/textViewEARFCN"
@@ -242,21 +232,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="297dp" />
+        app:layout_constraintGuide_begin="322dp" />
 
     <EditText
-        android:id="@+id/editTextBW"
+        android:id="@+id/editTextDestIP"
         android:layout_width="81dp"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textUri"
-        android:text="10"
+        android:text="10.8.1.88"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBW3" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPort" />
 
     <EditText
-        android:id="@+id/editTextBW3"
+        android:id="@+id/editTextPort"
         android:layout_width="81dp"
         android:layout_height="40dp"
         android:layout_marginTop="28dp"
@@ -267,7 +257,7 @@
         app:layout_constraintTop_toBottomOf="@+id/startbutton" />
 
     <EditText
-        android:id="@+id/editTextBW2"
+        android:id="@+id/editTextBW"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"

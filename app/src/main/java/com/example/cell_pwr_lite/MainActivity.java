@@ -11,6 +11,7 @@ import android.telephony.CellInfoLte;
 import android.telephony.CellSignalStrengthLte;
 import android.telephony.SignalStrength;
 import android.telephony.TelephonyManager;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewPRB;
     private TextView textViewIMSI;
     private TextView textViewIMEI;
+    private EditText editTextBW;
+    private EditText editTextPort;
+    private EditText editTextDestIP;
 
     private Boolean isRunning;
 
@@ -83,27 +87,7 @@ public class MainActivity extends AppCompatActivity {
         isRunning = Boolean.FALSE;
 
         telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                //YOUR CODE:
-                try {
-                    DatagramSocket s = new DatagramSocket();
-                    byte buf[] = logData.getBytes();
-                    DatagramPacket packet = new DatagramPacket(buf, buf.length, InetAddress.getByName("192.168.225.1"), port);
-                    //DatagramSocket socketClient = new DatagramSocket();
 
-                    s.send(packet);
-
-
-                } catch (SocketException ex) {
-                    ex.printStackTrace();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            }
-        });
-        thread.start();
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
@@ -153,6 +137,9 @@ public class MainActivity extends AppCompatActivity {
     public void addListenerOnStartButton() {
 
         //editText = (EditText) findViewById(R.id.editText);
+        editTextBW = (EditText) findViewById((R.id.editTextBW));
+        editTextPort = (EditText) findViewById(R.id.editTextPort);
+        editTextDestIP = (EditText) findViewById(R.id.editTextDestIP);
         StartButton = (Button) findViewById(R.id.startbutton);
         StartButton.setOnClickListener(new View.OnClickListener() {
 
@@ -161,9 +148,16 @@ public class MainActivity extends AppCompatActivity {
                     //isRunning = false, We will start...
                     isRunning = Boolean.TRUE;
                     StartButton.setText("STOP");
+                    editTextBW.setEnabled(false);
+                    editTextDestIP.setEnabled(false);
+                    editTextPort.setEnabled(false);
+
                 } else {
                     isRunning = Boolean.FALSE;
                     StartButton.setText("START");
+                    editTextBW.setEnabled(true);
+                    editTextDestIP.setEnabled(true);
+                    editTextPort.setEnabled(true);
                 }
             }
         });
@@ -193,18 +187,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void populateLog() {
-        textViewPLMN = (TextView) findViewById(R.id.textDestIP);
+
+
+
+
+        textViewPLMN = (TextView) findViewById(R.id.textViewPLMN);
         textViewPCI = (TextView) findViewById(R.id.textViewPCI);
         textViewTAC = (TextView) findViewById(R.id.textViewTAC);
         textViewCI = (TextView) findViewById(R.id.textViewCI);
         textViewEARFCN = (TextView) findViewById(R.id.textViewEARFCN);
-        textViewBW = (TextView) findViewById(R.id.editTextBW);
+        textViewBW = (TextView) findViewById(R.id.editTextDestIP);
         textViewRSRP = (TextView) findViewById(R.id.textViewRSRP);
         textViewRSRQ = (TextView) findViewById(R.id.textViewRSRQ);
         textViewRSSI = (TextView) findViewById(R.id.textViewRSSI);
-        textViewPRB = (TextView) findViewById(R.id.textViewPRB);
+        //textViewPRB = (TextView) findViewById(R.id.textViewPRB);
         textViewIMSI = (TextView) findViewById(R.id.textViewIMSI);
         textViewIMEI = (TextView) findViewById(R.id.textViewIMEI);
+        editTextBW = (EditText) findViewById((R.id.editTextBW));
+        editTextPort = (EditText) findViewById(R.id.editTextPort);
+        editTextDestIP = (EditText) findViewById(R.id.editTextDestIP);
+
 
         Log.d(APPTAG, "is LTE = 13? " + String.valueOf(telephonyManager.NETWORK_TYPE_LTE));
         try {
@@ -218,13 +220,13 @@ public class MainActivity extends AppCompatActivity {
                     Log.d(APPTAG, "MNC: " + String.valueOf(((CellInfoLte) cellInfoList.get(i)).getCellIdentity().getMnc()));
                     textViewIMSI.setText("IMSI: " + telephonyManager.getSubscriberId());
                     textViewIMEI.setText("IMEI: " + telephonyManager.getImei());
-                    textViewPLMN.setText("PLMN: " + String.valueOf(((CellInfoLte) cellInfoList.get(i)).getCellIdentity().getMcc()) + String.valueOf(((CellInfoLte) cellInfoList.get(i)).getCellIdentity().getMnc()));
-                    textViewPCI.setText("PCI: " + String.valueOf(((CellInfoLte) cellInfoList.get(i)).getCellIdentity().getPci()));
-                    textViewTAC.setText("TAC: " + String.valueOf(((CellInfoLte) cellInfoList.get(i)).getCellIdentity().getTac()));
-                    textViewCI.setText("CID: " + String.valueOf(((CellInfoLte) cellInfoList.get(i)).getCellIdentity().getCi()));
-                    textViewEARFCN.setText("EARFCN: " + String.valueOf(((CellInfoLte) cellInfoList.get(i)).getCellIdentity().getEarfcn()));
+                    textViewPLMN.setText(String.valueOf(((CellInfoLte) cellInfoList.get(i)).getCellIdentity().getMcc()) + String.valueOf(((CellInfoLte) cellInfoList.get(i)).getCellIdentity().getMnc()));
+                    textViewPCI.setText(String.valueOf(((CellInfoLte) cellInfoList.get(i)).getCellIdentity().getPci()));
+                    textViewTAC.setText(String.valueOf(((CellInfoLte) cellInfoList.get(i)).getCellIdentity().getTac()));
+                    textViewCI.setText(String.valueOf(((CellInfoLte) cellInfoList.get(i)).getCellIdentity().getCi()));
+                    textViewEARFCN.setText(String.valueOf(((CellInfoLte) cellInfoList.get(i)).getCellIdentity().getEarfcn()));
                     int bw = 10;
-                    textViewBW.setText("BW: " + String.valueOf(bw));
+                    //textViewBW.setText("BW: " + String.valueOf(bw));
                     textViewRSRP.setText("RSRP: " + String.valueOf(((CellInfoLte) cellInfoList.get(i)).getCellSignalStrength().getRsrp()) + " dBm");
                     textViewRSRQ.setText("RSRQ: " + String.valueOf(((CellInfoLte) cellInfoList.get(i)).getCellSignalStrength().getRsrq()) + " dB");
                     double bw_value = java.lang.Math.log(bw * 5);
@@ -260,21 +262,43 @@ public class MainActivity extends AppCompatActivity {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
+                if(isRunning){
+
+
                 //YOUR CODE:
-                try {
-                    DatagramSocket s = new DatagramSocket();
-                    byte buf[] = logData.getBytes();
-                    DatagramPacket packet = new DatagramPacket(buf, buf.length, InetAddress.getByName("10.8.1.88"), port);
-                    //DatagramSocket socketClient = new DatagramSocket();
+                if (Patterns.IP_ADDRESS.matcher(editTextDestIP.getText().toString()).matches()){
+                    if (Integer.valueOf(editTextPort.getText().toString()) <= 65535 && Integer.valueOf(editTextPort.getText().toString()) >=0 ){
 
-                    s.send(packet);
+                        //textView.setText("IP & Port are valid");
+                        try {
+                            DatagramSocket s = new DatagramSocket();
+                            byte buf[] = logData.getBytes();
+                            DatagramPacket packet = new DatagramPacket(buf, buf.length, InetAddress.getByName(editTextDestIP.getText().toString()), Integer.valueOf(editTextPort.getText().toString()));
+                            //DatagramSocket socketClient = new DatagramSocket();
+
+                            s.send(packet);
 
 
-                } catch (SocketException ex) {
-                    ex.printStackTrace();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
+                        } catch (SocketException ex) {
+                            ex.printStackTrace();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+
+                    }
+                    else{
+                        // port is not VALID!!!
+                        textView.setText("Port is not valid: (0 - 65535)");
+
+                    }
                 }
+                else {
+                    // IP ADDRESS IS NOT VALID!!!
+                    textView.setText("IP Address is not valid: x.x.x.x");
+
+                }
+
+                } // only send uplink if running start option.
             }
         });
         thread.start();
