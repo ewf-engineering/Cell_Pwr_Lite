@@ -248,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
         //String text = (editText.getText().toString() + location.getLatitude() + "\n" );
         //textView.setText(editText.getText().toString() + textView.getText());
         logData =
-                        "LTE_pwr_lite" +
+                        "Cell_Pwr_Lite" +
                         rssi + "," +
                         //Time + "," +
                         Latitude + "," +
@@ -262,44 +262,42 @@ public class MainActivity extends AppCompatActivity {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
+                // only dump the data on uplink if we are "RUNNING"
                 if(isRunning){
+                    if (Patterns.IP_ADDRESS.matcher(editTextDestIP.getText().toString()).matches()){
+                        if (Integer.valueOf(editTextPort.getText().toString()) <= 65535 && Integer.valueOf(editTextPort.getText().toString()) >=0 ){
+
+                            //textView.setText("IP & Port are valid");
+                            try {
+                                DatagramSocket s = new DatagramSocket();
+                                byte buf[] = logData.getBytes();
+                                DatagramPacket packet = new DatagramPacket(buf, buf.length, InetAddress.getByName(editTextDestIP.getText().toString()), Integer.valueOf(editTextPort.getText().toString()));
+                                //DatagramSocket socketClient = new DatagramSocket();
+
+                                s.send(packet);
 
 
-                //YOUR CODE:
-                if (Patterns.IP_ADDRESS.matcher(editTextDestIP.getText().toString()).matches()){
-                    if (Integer.valueOf(editTextPort.getText().toString()) <= 65535 && Integer.valueOf(editTextPort.getText().toString()) >=0 ){
+                            } catch (SocketException ex) {
+                                ex.printStackTrace();
+                            } catch (IOException ex) {
+                                ex.printStackTrace();
+                            }
 
-                        //textView.setText("IP & Port are valid");
-                        try {
-                            DatagramSocket s = new DatagramSocket();
-                            byte buf[] = logData.getBytes();
-                            DatagramPacket packet = new DatagramPacket(buf, buf.length, InetAddress.getByName(editTextDestIP.getText().toString()), Integer.valueOf(editTextPort.getText().toString()));
-                            //DatagramSocket socketClient = new DatagramSocket();
-
-                            s.send(packet);
-
-
-                        } catch (SocketException ex) {
-                            ex.printStackTrace();
-                        } catch (IOException ex) {
-                            ex.printStackTrace();
                         }
+                        else{
+                            // port is not VALID!!!
+                            textView.setText("Port is not valid: (0 - 65535)");
 
+                        }
                     }
-                    else{
-                        // port is not VALID!!!
-                        textView.setText("Port is not valid: (0 - 65535)");
+                    else {
+                        // IP ADDRESS IS NOT VALID!!!
+                        textView.setText("IP Address is not valid: x.x.x.x");
 
-                    }
-                }
-                else {
-                    // IP ADDRESS IS NOT VALID!!!
-                    textView.setText("IP Address is not valid: x.x.x.x");
+                    } // else ip no valid
 
-                }
-
-                } // only send uplink if running start option.
-            }
+                    } // only send uplink if running start option.
+            }// public void run
         });
         thread.start();
 
