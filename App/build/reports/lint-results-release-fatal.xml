@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="5" by="lint 3.5.0">
+
+    <issue
+        id="DuplicateIds"
+        severity="Fatal"
+        message="Duplicate id `@+id/textPLMN`, already defined earlier in this layout"
+        category="Correctness"
+        priority="7"
+        summary="Duplicate ids within a single layout"
+        explanation="Within a layout, id&apos;s should be unique since otherwise `findViewById()` can return an unexpected view."
+        errorLine1="        android:id=&quot;@+id/textPLMN&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/res/layout/activity_main.xml"
+            line="113"
+            column="9"/>
+        <location
+            file="/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/res/layout/activity_main.xml"
+            line="57"
+            column="9"/>
+    </issue>
+
+</issues>

@@ -46,7 +46,7 @@
         android:layout_width="384dp"
         android:layout_height="440dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,21 +57,19 @@
         android:id="@+id/textPLMN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
         android:editable="false"
         android:text="Dest IP :"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/textPort2" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4" />
 
     <TextView
         android:id="@+id/textPort2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
         android:editable="false"
         android:text="PORT :"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/startbutton" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3" />
 
     <TextView
         android:id="@+id/textEARFCN"
@@ -225,7 +223,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="313dp" />
+        app:layout_constraintGuide_begin="300dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -238,23 +236,21 @@
         android:id="@+id/editTextDestIP"
         android:layout_width="120dp"
         android:layout_height="40dp"
-        android:layout_marginTop="44dp"
         android:ems="10"
         android:inputType="textUri"
         android:text="10.8.1.88"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPort" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline4" />
 
     <EditText
         android:id="@+id/editTextPort"
         android:layout_width="80dp"
         android:layout_height="40dp"
-        android:layout_marginTop="44dp"
         android:ems="10"
         android:inputType="number"
         android:text="5555"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/startbutton" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline3" />
 
     <EditText
         android:id="@+id/editTextBW"

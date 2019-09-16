@@ -1,0 +1,7 @@
+#Fri Sep 13 16:18:05 EDT 2019
+base.0=/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex

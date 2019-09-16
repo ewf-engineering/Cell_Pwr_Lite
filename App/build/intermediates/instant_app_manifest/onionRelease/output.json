@@ -1,0 +1,1 @@
+[{"outputType":{"type":"INSTANT_APP_MANIFEST"},"apkData":{"type":"MAIN","splits":[],"versionCode":1,"versionName":"1.01.2","enabled":true,"outputFile":"app-onion-release.apk","fullName":"onionRelease","baseName":"onion-release"},"path":"AndroidManifest.xml","properties":{"packageId":"com.example.cell_pwr_lite.CellPwrLite","split":"","minSdkVersion":"26"}}]

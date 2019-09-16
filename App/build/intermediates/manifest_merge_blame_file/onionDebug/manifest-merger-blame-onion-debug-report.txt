@@ -1,0 +1,74 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.cell_pwr_lite"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+8-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+11-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:4:5-78
+11-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:4:22-76
+12    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+12-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:5:5-81
+12-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:5:22-78
+13    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+13-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:6:5-75
+13-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:6:22-72
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:7:5-66
+14-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:7:22-64
+15
+16    <application
+16-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:9:5-23:19
+17        android:allowBackup="true"
+17-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:10:9-35
+18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+18-->[androidx.core:core:1.0.1] /home/local/G3TI/eric.forbes/.gradle/caches/transforms-2/files-2.1/72b2b92ec4ab73ff21fb9bc348de3b22/core-1.0.1/AndroidManifest.xml:22:18-86
+19        android:debuggable="true"
+20        android:icon="@mipmap/ic_launcher"
+20-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:11:9-43
+21        android:label="@string/app_name"
+21-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:12:9-41
+22        android:roundIcon="@mipmap/ic_launcher_round"
+22-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:13:9-54
+23        android:supportsRtl="true"
+23-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:14:9-35
+24        android:theme="@style/AppTheme" >
+24-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:15:9-40
+25        <activity android:name="com.example.cell_pwr_lite.MainActivity" >
+25-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:16:9-22:20
+25-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:16:19-47
+26            <intent-filter>
+26-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:17:13-21:29
+27                <action android:name="android.intent.action.MAIN" />
+27-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:18:17-69
+27-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:18:25-66
+28
+29                <category android:name="android.intent.category.LAUNCHER" />
+29-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:20:17-77
+29-->/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/src/main/AndroidManifest.xml:20:27-74
+30            </intent-filter>
+31        </activity>
+32        <activity
+32-->[com.google.android.gms:play-services-base:17.0.0] /home/local/G3TI/eric.forbes/.gradle/caches/transforms-2/files-2.1/291563c6708268cf4683b088770f2b39/play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+33            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+33-->[com.google.android.gms:play-services-base:17.0.0] /home/local/G3TI/eric.forbes/.gradle/caches/transforms-2/files-2.1/291563c6708268cf4683b088770f2b39/play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+34            android:exported="false"
+34-->[com.google.android.gms:play-services-base:17.0.0] /home/local/G3TI/eric.forbes/.gradle/caches/transforms-2/files-2.1/291563c6708268cf4683b088770f2b39/play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+35            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+35-->[com.google.android.gms:play-services-base:17.0.0] /home/local/G3TI/eric.forbes/.gradle/caches/transforms-2/files-2.1/291563c6708268cf4683b088770f2b39/play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+36
+37        <meta-data
+37-->[com.google.android.gms:play-services-basement:17.0.0] /home/local/G3TI/eric.forbes/.gradle/caches/transforms-2/files-2.1/70fe016bac87dc384041324a55c48a40/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+38            android:name="com.google.android.gms.version"
+38-->[com.google.android.gms:play-services-basement:17.0.0] /home/local/G3TI/eric.forbes/.gradle/caches/transforms-2/files-2.1/70fe016bac87dc384041324a55c48a40/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+39            android:value="@integer/google_play_services_version" />
+39-->[com.google.android.gms:play-services-basement:17.0.0] /home/local/G3TI/eric.forbes/.gradle/caches/transforms-2/files-2.1/70fe016bac87dc384041324a55c48a40/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+40    </application>
+41
+42</manifest>

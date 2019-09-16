@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextDestIP;
 
     private Boolean isRunning;
+    private Boolean isRefresh = Boolean.FALSE;
 
     private LocationManager locationManager;
     private LocationListener locationListener;
@@ -85,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         populateLog();
 
         isRunning = Boolean.FALSE;
+        isRefresh = Boolean.FALSE;
 
         telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 
@@ -178,6 +180,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (!isRunning) {
                     populateLog();
+                    isRefresh = Boolean.TRUE;
                 } else {
                     return;
                 }
@@ -247,15 +250,25 @@ public class MainActivity extends AppCompatActivity {
         //String text = String.valueOf(location.getLatitude());
         //String text = (editText.getText().toString() + location.getLatitude() + "\n" );
         //textView.setText(editText.getText().toString() + textView.getText());
-        logData =
-                        "Cell_Pwr_Lite" +
+        String printData =
+                //"Cell_Pwr_Lite" + "," +
                         rssi + "," +
                         //Time + "," +
                         Latitude + "," +
                         Longitude + "," +
                         Altitude + "," +
                         "\n";
-        textView.setText(logData + textView.getText());
+        logData =
+                "Cell_Pwr_Lite" + "," +
+                        rssi + "," +
+                        //Time + "," +
+                        Latitude + "," +
+                        Longitude + "," +
+                        Altitude
+                        ;
+
+        textView.setText(printData + textView.getText());
+
         //textView.setText("test");
 
 

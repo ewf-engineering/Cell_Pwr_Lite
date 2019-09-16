@@ -1,0 +1,4 @@
+#Fri Sep 13 16:24:23 EDT 2019
+base.0=/home/local/G3TI/eric.forbes/AndroidStudioProjects/Cell_Pwr_Lite/app/build/intermediates/dex/release/mergeDexRelease/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
