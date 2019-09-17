@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextDestIP;
 
     private Boolean isRunning;
-    private Boolean isRefresh = Boolean.FALSE;
 
     private LocationManager locationManager;
     private LocationListener locationListener;
@@ -75,23 +74,24 @@ public class MainActivity extends AppCompatActivity {
     public int port = 5555;
 
     private final String APPTAG = "Cell_Pwr_Lite";
-    //private CellSignalStrengthLte cellSignalStrengthLte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        addListenerOnButton();
+        addListenerOnRefreshButton();
         addListenerOnStartButton();
         populateLog();
 
         isRunning = Boolean.FALSE;
-        isRefresh = Boolean.FALSE;
 
         telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-
-
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        // IN ANDROID MANIFEST.xml add.....
+        //<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+        //<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+        //<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+        //<uses-permission android:name="android.permission.INTERNET"/>
 
         locationListener = new LocationListener() {
             @Override
@@ -132,9 +132,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /**
-     * Called when the user taps the Send button
-     */
 
     public void addListenerOnStartButton() {
 
@@ -166,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void addListenerOnButton() {
+    public void addListenerOnRefreshButton() {
         // Do something in response to button
         //locationManager = (LocationManager);
 
@@ -180,7 +177,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (!isRunning) {
                     populateLog();
-                    isRefresh = Boolean.TRUE;
                 } else {
                     return;
                 }
@@ -246,20 +242,9 @@ public class MainActivity extends AppCompatActivity {
             Log.e(APPTAG, "Other exception: " + e1.toString());
         }
 
-        //Double latitude = location.getLatitude();
-        //String text = String.valueOf(location.getLatitude());
-        //String text = (editText.getText().toString() + location.getLatitude() + "\n" );
-        //textView.setText(editText.getText().toString() + textView.getText());
-        String printData =
-                //"Cell_Pwr_Lite" + "," +
-                        rssi + "," +
-                        //Time + "," +
-                        Latitude + "," +
-                        Longitude + "," +
-                        Altitude + "," +
-                        "\n";
+
         logData =
-                "Cell_Pwr_Lite" + "," +
+                //"Cell_Pwr_Lite" + "," +
                         rssi + "," +
                         //Time + "," +
                         Latitude + "," +
@@ -267,9 +252,7 @@ public class MainActivity extends AppCompatActivity {
                         Altitude
                         ;
 
-        textView.setText(printData + textView.getText());
-
-        //textView.setText("test");
+        textView.setText(logData +"\n"+ textView.getText());
 
 
         Thread thread = new Thread(new Runnable() {
