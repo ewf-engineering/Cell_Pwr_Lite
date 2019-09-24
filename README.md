@@ -6,22 +6,14 @@ See https://ewf-engineering.com/gathering-data-and-analyzing-a-path-loss-model-p
 
 To Do:
 - [ ] Better PLMN reader
-
 - [ ] Android api 28+ for BW reader
-
 - [ ] Button for BTS location
-
 - [ ] Update output array for more information
-
 - [ ] add "versions" in output arrary
-
 - [ ] Buffer data for uplink
-
 - [ ] local storage on phone. with view.  
-
 - [ ] prompts for NO LTE Connection. 
-
 - [ ] Neighbor cell support 
-
-- [ ] SIB Cell information Neighbor cell reporting.
+- [ ] Neighbor cell reporting.
+- [ ] Run Task in background
 
