@@ -5,21 +5,20 @@ This project is to gather cellular signal strength and send it via UDP traffic t
 See https://ewf-engineering.com/gathering-data-and-analyzing-a-path-loss-model-part-1-of-3-an-android-app/
 
 To Do:
+- [ ] Better PLMN reader
 
-*Better PLMN reader
+- [ ] Android api 28+ for BW reader
 
-*Android api 28+ for BW reader
+- [ ] Button for BTS location
 
-*Button for BTS location
+- [ ] Update output array for more information
 
-*Update output array for more information
+- [ ] add "versions" in output arrary
 
-*add "versions" in output arrary
+- [ ] Buffer data for uplink
 
-*Buffer data for uplink
+- [ ] local storage on phone. with view.  
 
-*local storage on phone. with view.  
-
-*prompts for NO LTE Connection. 
+- [ ] prompts for NO LTE Connection. 
 
 
