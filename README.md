@@ -21,4 +21,7 @@ To Do:
 
 - [ ] prompts for NO LTE Connection. 
 
+- [ ] Neighbor cell support 
+
+- [ ] SIB Cell information Neighbor cell reporting.
 
