@@ -15,3 +15,11 @@ To Do:
 *Update output array for more information
 
 *add "versions" in output arrary
+
+*Buffer data for uplink
+
+*local storage on phone. with view.  
+
+*prompts for NO LTE Connection. 
+
+
